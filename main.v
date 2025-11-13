@@ -1,3 +1,4 @@
+
 module top (
 	input clk, reset,
 	input [2:0] S,
@@ -27,6 +28,7 @@ module switch_handler (
 	input [2:0] S,
 	output reg force_reset
 );
+
 	reg [2:0] prev;
 	always @(posedge clk) begin
 		if (prev == S) begin
@@ -51,28 +53,28 @@ module beat_generator (
 	reg [2:0] prev_S;
 
 	always @(posedge clk) begin
-		if (S == 3'b000 && out == 100 - 2) begin
+		if (S == 3'b000 && out == 100000000 - 2) begin
 			count_reset <= 1;
 		end
-		else if (S == 3'b001 && out == 66 - 2)  begin
+		else if (S == 3'b001 && out == 66666667 - 2)  begin
 			count_reset <= 1;
 		end
-		else if (S == 3'b010 && out == 50 - 2)  begin
+		else if (S == 3'b010 && out == 50000000 - 2)  begin
 			count_reset <= 1;
 		end
-		else if (S == 3'b011 && out == 40 - 2)  begin
+		else if (S == 3'b011 && out == 40000000 - 2)  begin
 			count_reset <= 1;
 		end
-		else if (S == 3'b100 && out == 30 - 2)  begin
+		else if (S == 3'b100 && out == 30000000 - 2)  begin
 			count_reset <= 1;
 		end
-		else if (S == 3'b101 && out == 20 - 2)  begin
+		else if (S == 3'b101 && out == 20000000 - 2)  begin
 			count_reset <= 1;
 		end
-		else if (S == 3'b110 && out == 12 - 2)  begin
+		else if (S == 3'b110 && out == 12000000 - 2)  begin
 			count_reset <= 1;
 		end
-		else if (S == 3'b111 && out == 6 - 2)   begin
+		else if (S == 3'b111 && out == 6000000 - 2)   begin
 			count_reset <= 1;
 		end else if (count_reset == 1) begin
 			count_reset <= 0;
