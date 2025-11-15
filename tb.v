@@ -6,8 +6,9 @@ module tb;
 	reg reset;
 	reg [2:0] S;
 	wire pulse;
+	wire led;
 
-	top uut (clk, reset, S, pulse);
+	top uut (clk, reset, S, pulse, led);
 
 	initial begin
 		clk = 0;
@@ -25,14 +26,14 @@ module tb;
 		reset = 1;
 		#23 reset = 0;
 		S = 3'b111;
-		#2000 S = 3'b110;
-		#2000 S = 3'b101;
-		#2000 S = 3'b100;
-		#2000 S = 3'b011;
-		#2000 S = 3'b010;
-		#2000 S = 3'b001;
-		#2000 S = 3'b000;
-		#2000 S = 3'b1;
+		#20000 S = 3'b110;
+		#20000 S = 3'b101;
+		#20000 S = 3'b100;
+		#20000 S = 3'b011;
+		#20000 S = 3'b010;
+		#20000 S = 3'b001;
+		#20000 S = 3'b000;
+		#20000 S = 3'b1;
 		$finish;
 	end
 endmodule
